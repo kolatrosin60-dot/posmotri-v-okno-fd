@@ -125,8 +125,9 @@ ol {
 }
 
 .title {
+  font-family: 'Oswald', sans-serif;
   font-size: 75px;
-  line-height: 0.82;
+  line-height: 70px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -134,8 +135,9 @@ ol {
 
 .content__accent {
   font-family: inherit;
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
+  color: #545050;
 }
 
 .content__card-link {
@@ -145,6 +147,7 @@ ol {
 }
 
 .content__video-card-title {
+  font-family: 'Oswald', sans-serif;
   font-size: 30px;
   line-height: 1;
   font-weight: 700;
@@ -196,9 +199,9 @@ ol {
   font-size: 18px;
   color: #fff;
   background-color: transparent;
-  border-top: 1px solid #fff;
+  border-top: 1px solid currentColor;
   border-right: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid currentColor;
   border-left: none;
 }
 
@@ -212,6 +215,7 @@ ol {
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .search-form__pseudo-checkbox {
@@ -275,6 +279,7 @@ ol {
 
 .button:focus-visible {
   outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .content__list-item {
