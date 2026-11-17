@@ -1,4 +1,4 @@
-
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -6,7 +6,20 @@
 
 html {
   block-size: 100%;
-} 
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  background-color: #1b1919;
+}
 
 h1,
 h2,
@@ -27,7 +40,6 @@ ol {
   list-style: none;
 }
 
-
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -38,26 +50,10 @@ ol {
   white-space: nowrap;
 }
 
-/* ==========================================================================
-   Шаг 1. Лейаут
-   ========================================================================== */
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
-}
-
 .content {
   display: flex;
-  align-items: flex-end; 
-  gap: 30px;             
+  align-items: flex-end;
+  gap: 30px;
   width: 1140px;
 }
 
@@ -71,16 +67,14 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-self: stretch;
   width: 399px;
   height: 100%;
   flex-grow: 1;
 }
 
-/* ==========================================================================
-   Шаг 2. Уточнение размеров
-   ========================================================================== */
 .result__video-container {
-  position: relative; 
+  position: relative;
   width: 711px;
   height: 386px;
   margin-bottom: 16px;
@@ -93,12 +87,11 @@ ol {
   object-position: center;
 }
 
-
 .content__list-container {
-  position: relative; 
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 30px;          
+  gap: 30px;
   height: 298px;
   overflow-y: auto;
 }
@@ -106,14 +99,12 @@ ol {
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 30px;          
+  gap: 30px;
 }
-
 
 .content__video-card {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
 }
 
 .content__video-card-description-container {
@@ -127,9 +118,6 @@ ol {
   object-position: center;
 }
 
-/* ==========================================================================
-   Шаг 3. Стили текстов
-   ========================================================================== */
 .search-form__fieldset-title {
   font-size: 18px;
   font-weight: 400;
@@ -138,7 +126,7 @@ ol {
 
 .title {
   font-size: 75px;
-  line-height: 0.82;   
+  line-height: 0.82;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -151,9 +139,9 @@ ol {
 }
 
 .content__card-link {
+  display: block;
+  color: #fff;
   text-decoration: none;
-  color: inherit;
-  display: block;    
 }
 
 .content__video-card-title {
@@ -165,22 +153,18 @@ ol {
   max-width: 190px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 .content__video-card-description {
-  font-size: 15px;
-  line-height: 0.9;   
+  line-height: 0.9;
   max-width: 190px;
   display: -webkit-box;
-  -webkit-line-clamp: 4; 
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* ==========================================================================
-   Шаг 4. Стилизуем формы и кастомные элементы
-   ========================================================================== */
 .search-form {
   display: flex;
   justify-content: space-between;
@@ -201,22 +185,21 @@ ol {
   align-items: center;
   width: fit-content;
   gap: 5px;
-  cursor: pointer; 
 }
 
-/* Текстовое поле */
 .search-form__textfield {
   appearance: none;
-  background-color: transparent;
-  border: none;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  color: #fff;
-  font-family: inherit;
-  font-size: 18px;
   width: 225px;
   height: 27px;
   padding: 0;
+  font-family: inherit;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent;
+  border-top: 1px solid #fff;
+  border-right: none;
+  border-bottom: 1px solid #fff;
+  border-left: none;
 }
 
 .search-form__textfield::placeholder {
@@ -227,20 +210,18 @@ ol {
   outline: none;
 }
 
-
-.search-form__label:has(.search-form__textfield:focus-visible) {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
 }
 
-
 .search-form__pseudo-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 19px;
   height: 19px;
-  border: 1px solid #fff;
   padding: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid #fff;
 }
 
 .search-form__pseudo-checkbox::after {
@@ -252,32 +233,21 @@ ol {
   opacity: 0;
 }
 
-
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   opacity: 1;
 }
 
-
-.search-form__label:hover .search-form__label-text {
+.search-form__checkbox-list .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
-
-.search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid #fff;
-}
-
-/* ==========================================================================
-   Шаг 5. Кнопки и их состояния
-   ========================================================================== */
 .button {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
   font-family: inherit;
   font-size: 18px;
   font-weight: 700;
-  cursor: pointer; 
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
 }
 
 .search-form__submit-button {
@@ -290,7 +260,6 @@ ol {
   width: 100%;
   height: 34px;
 }
-
 
 .button:hover {
   text-decoration: underline;
@@ -306,30 +275,23 @@ ol {
 
 .button:focus-visible {
   outline: 1px solid #fff;
-  outline-offset: 1px;
 }
 
-/* ==========================================================================
-   Шаг 6. Состояния карточек
-   ========================================================================== */
 .content__list-item {
-  padding: 0 3px; 
+  padding: 0 3px;
 }
 
 .content__card-link_current {
   background-color: #545050;
 }
 
-
 .content__card-link:active {
   background-color: #545050;
 }
 
-
 .content__card-link:hover {
   text-decoration: underline;
 }
-
 
 .content__card-link:focus {
   outline: none;
@@ -339,18 +301,12 @@ ol {
   outline: 1px solid #fff;
 }
 
-/* ==========================================================================
-   Шаг 7. Курсоры
-   ========================================================================== */
 .content__card-link,
 .button,
 .search-form__label {
   cursor: pointer;
 }
 
-/* ==========================================================================
-   Кастомный скроллбар 
-   ========================================================================== */
 .content__list-container::-webkit-scrollbar,
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
@@ -363,5 +319,5 @@ ol {
 
 .content__list-container::-webkit-scrollbar-thumb,
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
-} 
+  background-color: #d9d9d9;
+}
